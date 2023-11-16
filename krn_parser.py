@@ -1,5 +1,4 @@
 import re
-import exrex
 import json
 
 # Let's define some basics
