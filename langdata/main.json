@@ -15,6 +15,10 @@
 		"rel" : "doing",
 		"der" : "from Hindi करना"
 	},
+	"prm" : {
+		"rel" : "loving",
+		"der" : "from Hindi प्रेम"
+	},
 	"scn" : {
 		"rel" : "thinking",
 		"der" : "from Hindi सोचना"

@@ -83,10 +83,51 @@
 			color: #222;
 		}
 
+		#leftmenu {
+			position: fixed;
+			left: 2%;
+			top: 5%;
+			width: 15%;
+			height: 90%;
+			background-color: #234;
+		}
+
+		.menu_item {
+			position: relative;
+			font-size: 4vh;
+			font-family: Source Code Pro;
+			color: #ddd;
+			left: 10%;
+			margin-top: 5%;
+			width: 80%;
+			padding: 0.5vh 0;
+			border-bottom: 3px solid #012;
+		}
+
+		.menu_item a {
+			color: #ddd;
+			text-decoration: none;
+		}
+
 		table { border-collapse: collapse; }
 	</style>
 </head>
 <body>
+	<div id="leftmenu">
+		<div id="search_href_div" class="menu_item">
+			<a href='/'>Home</a>
+		</div>
+		<div id="search_href_div" class="menu_item">
+			<a href='/grammar'>Grammar</a>
+		</div>
+		<div id="search_href_div" class="menu_item">
+			<a href='/dict'>Dictionary</a>
+		</div>
+		<div id="search_href_div" class="menu_item">
+			<a href='/search'>Search</a>
+		</div>
+	</div>
+
 	<div id="first_root" class="root_panel" style="display: none">
 		<span id="root" class="root_desc_item">
 			
