@@ -1,0 +1,20 @@
+{
+	"indicative" : {
+		"present simple" : "{inf}",
+		"present perfect" : "{perf} {inf}",
+		"present continuous" : "{cont} {inf}",
+		"present perfect continuous" : "{perf} {cont} {inf}",
+		"past simple" : "{past} {inf}",
+		"past perfect" : "{past} {perf} {inf}",
+		"past continuous" : "{past} {cont} {inf}",
+		"past perfect continuous" : "{past} {perf} {cont} {inf}",
+		"future simple" : "{fut} {inf}",
+		"future perfect" : "{fut} {perf} {inf}",
+		"future continuous" : "{fut} {cont} {inf}",
+		"future perfect continuous" : "{fut} {perf} {cont} {inf}"
+	},
+	"imperative" : {
+		"present simple" : "{inf}{imp}",
+		"future simple" : "{fut} {inf}{imp}"
+	}
+}

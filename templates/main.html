@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
+
+	<title>krn</title>
+
+	<style>
+		body{
+			background-color: #123;
+		}
+
+		.text{
+			color: white;
+		}
+
+		.gray{
+			color: #aaa;
+		}
+
+		.ar{
+			font-family: Noto Naskh Arabic;
+		}
+
+		.en{
+			font-family: Source Code Pro;
+		}
+
+		.titletext{
+			font-size: 10vh;
+			color: white;
+			text-align: center;
+			font-family: Source Code Pro;
+		}
+
+		#cursor {
+			color: #88dd88;
+		}
+
+		.expos_div {
+			font-family: Source Code Pro;
+			background-color: #aaaadd;
+			position: relative;
+			width: 50%;
+			padding: 1vh 1vw;
+			transform: translate(-50%, 0%);
+			left: 50%;
+			margin-top: 5%;
+			font-size: 2.5vh;
+		}
+
+		.expos_div_title {
+			font-family: Source Code Pro;
+			font-size: 4vh;
+			text-align: center;
+		}
+
+		.krn_word {
+			color: #00f;
+		}
+
+		#leftmenu {
+			position: fixed;
+			left: 2%;
+			top: 5%;
+			width: 15%;
+			height: 90%;
+			background-color: #234;
+		}
+
+		.menu_item {
+			position: relative;
+			font-size: 4vh;
+			font-family: Source Code Pro;
+			color: #ddd;
+			left: 10%;
+			margin-top: 5%;
+			width: 80%;
+			padding: 0.5vh 0;
+			border-bottom: 3px solid #012;
+		}
+
+		.menu_item a {
+			color: #ddd;
+			text-decoration: none;
+		}
+
+	</style>
+
+</head>
+<body>
+	<br>
+	<div id="krn_title" class="titletext">
+		krn<span id="title_autogen"></span><span id="cursor"></span>
+	</div>
+
+	<div id="leftmenu">
+		<div id="search_href_div" class="menu_item">
+			<a href='/'>Home</a>
+		</div>
+		<div id="search_href_div" class="menu_item">
+			<a href='/grammar'>Grammar</a>
+		</div>
+		<div id="search_href_div" class="menu_item">
+			<a href='/dict'>Dictionary</a>
+		</div>
+		<div id="search_href_div" class="menu_item">
+			<a href='/search'>Search</a>
+		</div>
+	</div>
+
+	<div id="intro" class="expos_div">
+		<div class="expos_div_title">
+			Huh?
+		</div>
+
+		<br><br>
+
+		You may be wondering what exactly you're looking at here -- and I'll keep the answer short: you're looking at a computer-generated language called <span class="krn_word">krn</span>.
+
+		<br><br>
+
+		That may seem odd to pronounce; as a clarification, I'll give you the first rule of this language, which is that there is an implied short "a" or uh" -- a schwa (ə), to be precise -- sound between every consonant if there isn't another vowel present. This may be familiar to speakers of many languages on the Eastern side of the Indo-European tree; for instance, in Hindi and many Indian languages, the short "a" sound is implied between consonants if no long vowels are written. In Arabic, and languages written with Arabic-derived scripts, like Persian, short vowels are entirely implied.
+
+		<br><br>
+
+		So the name of this language is pronounced "karana" -- or kərənə, if you want the IPA. It'll also be equivalent to say "karan" or kərən.
+
+		<br><br>
+	</div>
+
+
+	<div id="why" class="expos_div">
+		<div class="expos_div_title">
+			Why?
+		</div>
+
+		<br><br>
+
+		The motivation behind this project is to create a language with a grammar simple enough to be entirely parsed and understood -- both syntactically and sematically -- by a straightforward algorithm. Right now, using regex, it's possible to validate the correctness of any given word -- that is, whether or not it's a valid word in the language. The plan is to expand this to sentence structure.
+
+		<br><br>
+
+		Moreover, this language combines interesting elements of different languages. For example, the verb tense system is taken directly from English (and several Indo-European languages), but the ability for the language to be computationally efficient, so to speak, is a characteristic derived from Semitic languages, notably Arabic. That is, a root word of three letters represents a concept, and from there we derive numerous related words.
+
+		<br><br>
+
+		Let's look at a basic example below.
+
+		<br><br>
+	</div>
+
+	<div id="why" class="expos_div">
+		<div class="expos_div_title">
+			Grammar Basics
+		</div>
+
+		<br><br>
+
+		Let's take the root word <span class="krn_word">klm</span>, relating to "talking" -- how can we turn this into a set of words that is useful to us? Well, for now, we're going to add a vowel to the end of this root -- run with it for now, and it'll be clear why later. So, we have the word <span class="krn_word">klma</span>. To clarify, this "a" is pronounced like the sound in the English word "cot." If we want to turn this into a verb, we can add a suffix -- let's be lazy and choose "v" for verb. Thus <span class="krn_word">klmav</span>, pronounced kələmav, would mean "to talk" -- and we can already make some basic sentences here. With the pronoun <span class="krn_word">na</span> meaning "I" or "me," we can say <span class="krn_word">na klmav</span>; I talk.
+
+		<br><br>
+
+		This is perhaps not the best place to give a full explanation of the grammar of this language -- I'll leave you with the resources on the website. Take a look -- and if you've got any feedback, be sure to reach out!
+
+		<br><br>
+	</div>
+</body>
+<script>
+	var AUTOGENS = ['a', 'ac', 'acg', 'ack', 'e', 'emp', 'ecg', 'eck', 'amp', 'emk']
+
+	function addToAutogen(c) {
+		title_autogen.textContent += c
+	}
+
+	function removeFromAutogen() {
+		title_autogen.textContent = title_autogen.textContent.slice(0, title_autogen.textContent.length - 1)
+	}
+
+	function autogen_for_title() {
+		title_autogen.textContent = ''
+		var choice = AUTOGENS[Math.round(Math.random() * AUTOGENS.length)]
+		var l = choice.length
+		var i = 1
+		for (var char of choice) {
+			(function (cc) {
+				setTimeout(function () {
+					addToAutogen(cc)
+				}, 400 * i)
+			})(char)
+			setTimeout(removeFromAutogen, 3000 + 200 * i)
+			i = i + 1
+		}
+	}
+
+	function blinkCursor() {
+		if (cursor.innerHTML == "_") {
+			cursor.innerHTML = '&nbsp;'
+		}
+		else {
+			cursor.innerHTML = '_'
+		}
+		setTimeout(blinkCursor, 700)
+	}
+
+	autogen_for_title()
+	setInterval(autogen_for_title, 10 * 1000)
+	blinkCursor();
+</script>
+</html>

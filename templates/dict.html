@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
+
+	<title>krn | Dictionary</title>
+
+	<style type="text/css">
+		body{
+			background-color: #123;
+		}
+
+		.text{
+			font-size: 3vh;
+			color: #eee;
+			position: relative;
+		}
+
+		.textref {
+			color: inherit;
+		}
+
+		.hn{
+			font-family: Noto Serif Devanagari;
+		}
+
+		.ar{
+			font-family: Noto Naskh Arabic;
+		}
+
+		.en{
+			font-family: Source Code Pro, Courier;
+		}
+
+		.topheading{
+			font-size: 7vh;
+		}
+
+		.in1{
+			left: 5%;
+		}
+
+		.in2{
+			left: 10%;
+		}
+
+		.root_panel {
+			position: relative;
+			background-color: #aaa;
+			font-family: Source Code Pro, Courier;
+			font-size: 3vh;
+			color: #eee;
+			width: 60%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			margin-top: 2.5%;
+			margin-bottom: 2.5%;
+			padding: 3vh 1vw;
+		}
+
+		.root_desc_item {
+			padding: 3vh 1vw;
+		}
+
+		#root {
+			color: #22e;
+		}
+
+		#definition {
+			color: #2a2;
+		}
+
+		#derivation {
+			color: #222;
+		}
+
+		table { border-collapse: collapse; }
+	</style>
+</head>
+<body>
+	<div id="first_root" class="root_panel" style="display: none">
+		<span id="root" class="root_desc_item">
+			
+		</span>
+
+
+		<span id="definition" class="root_desc_item">
+		</span>
+
+
+		<span id="derivation" class="root_desc_item">
+		</span>
+	</div>
+</body>
+<script>
+	function hrefWrap(ref, text) {
+		return "<a class='textref' href='" + ref + "'>" + text + "</a>"
+	}
+
+
+
+	var raw_data_req = new XMLHttpRequest();
+	raw_data_req.open("GET", "/allroots")
+	raw_data_req.send()
+	raw_data_req.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200){
+			var root_json = JSON.parse(this.responseText)
+			for (var root of Object.keys(root_json)) {
+				var panel = document.getElementById("first_root").cloneNode(true)
+				panel.style.display = "inline-block"
+				panel.getElementsByTagName('span')[0].innerHTML = hrefWrap('/word/' + root, root)
+				panel.getElementsByTagName('span')[1].innerHTML = root_json[root]['rel']
+				panel.getElementsByTagName('span')[2].innerHTML = root_json[root]['der']
+				document.body.appendChild(panel)
+			}
+		}
+	}
+
+
+</script>
+</html>

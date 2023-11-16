@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
+
+	<title>krn | Search</title>
+
+	<style>
+		body{
+			background-color: #123;
+		}
+
+		.text{
+			color: white;
+		}
+
+		.gray{
+			color: #aaa;
+		}
+
+		.ar{
+			font-family: Noto Naskh Arabic;
+		}
+
+		.en{
+			font-family: Source Code Pro;
+		}
+
+		.titletext{
+			font-size: 10vh;
+			color: white;
+			text-align: center;
+			font-family: Source Code Pro;
+		}
+
+		#search_results{
+			padding: 0;
+			margin: 0;
+			position: relative;
+			list-style-type: none;
+			font-size: 4vh;
+			text-align: left;
+			left: 22.5%;
+		}
+
+		#search_results > a{
+			text-decoration: none;
+			color: #eee;
+		}
+
+		#searchbar{
+			position: relative;
+			width: 55%;
+			padding: 2vh 2vh;
+			left: 50%;
+			transform: translate(-50%, 0%);
+			background-color: #333;
+			border: none;
+			color: #eee;
+			font-size: 4vh;
+			font-family: Source Code Pro;
+		}
+
+		#searchbar:focus{
+			outline: none;
+		}
+	</style>
+
+</head>
+<body>
+	<br>
+	<div id="krn_title" class="titletext">
+		krn
+	</div>
+	<br>
+	<input type="text" id="searchbar" placeholder="search word or definition..." onkeydown="javascript:executeQuery()">
+	<br>
+	<br>
+	<ul id="search_results">
+
+	</ul>
+</body>
+<script>
+	var SUBMIT_TIMEOUT = null;
+
+	function submitQuery(){
+		var query_item = document.getElementById("searchbar").value
+		if (query_item.replaceAll(" ", "") == ""){
+			document.getElementById("search_results").innerHTML = ""
+			return
+		}
+		var req = new XMLHttpRequest();
+		req.open("GET", "/query/" + query_item);
+		req.send()
+		req.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200){
+				console.log(this.responseText)
+				var results = this.responseText.split("\n")
+				document.getElementById("search_results").innerHTML = ""
+				for (var row of results){
+					var data = JSON.parse(row)
+					var el = document.createElement("a")
+					el.target = "_blank"
+					el.href = "/word/" + data.word
+					el.innerHTML = "<span class='text ar'>" + data.word + "</span>"
+					el.innerHTML += " <span class='text gray en'>" + data.type + "</span>"
+					el.innerHTML += "<br>&nbsp;&nbsp;&nbsp;&nbsp;"
+					el.innerHTML += "<span class='text gray en'>" + data.definition + "</span>"
+
+					document.getElementById("search_results").appendChild(el)
+					document.getElementById("search_results").appendChild(document.createElement("br"))
+					document.getElementById("search_results").appendChild(document.createElement("br"))
+				}
+			}
+		}
+	}
+
+	function executeQuery(){
+		clearTimeout(SUBMIT_TIMEOUT);
+		SUBMIT_TIMEOUT = setTimeout(submitQuery, 400)
+	}
+</script>
+</html>

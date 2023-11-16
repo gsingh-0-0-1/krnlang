@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
+
+	<title></title>
+
+	<style type="text/css">
+		body{
+			background-color: #123;
+		}
+
+		.text{
+			font-size: 3vh;
+			color: #eee;
+			position: relative;
+		}
+
+		.textref {
+			color: #aad;
+		}
+
+		.hn{
+			font-family: Noto Serif Devanagari;
+		}
+
+		.ar{
+			font-family: Noto Naskh Arabic;
+		}
+
+		.en{
+			font-family: Source Code Pro, Courier;
+		}
+
+		.topheading{
+			font-size: 7vh;
+		}
+
+		.in1{
+			left: 5%;
+		}
+
+		.in2{
+			left: 10%;
+		}
+
+		#verb_table {
+			color: #eee;
+			font-family: Source Code Pro;
+			position: relative;
+			left: 10%;
+			margin-top: 5%;
+		}
+
+		#verb_table th, td {
+			padding: 0.5vh 1vw;
+		}
+
+		#verb_table tbody tr:first-child {
+			font-weight: bold;
+			border-bottom: 1px solid white;
+		}
+
+		#verb_table tbody tr:nth-child(13) {
+			font-weight: bold;
+			border-bottom: 1px solid white;
+		}
+
+		#verb_table tbody tr:nth-child(15) {
+			font-weight: bold;
+			border-bottom: 1px solid white;
+		}
+
+		table { border-collapse: collapse; }
+	</style>
+</head>
+<body>
+	<div id="word_title" class="topheading text ar in1">
+	</div>
+
+	<div>
+		<div id="type" class="text en in2">
+			
+		</div>
+	</div>
+
+	<br><br>
+
+	<div>
+		<div id="root" class="text en in2">
+			from root 
+		</div>
+
+		<br>
+
+		<div id="definition" class="text en in2">
+		</div>
+
+		<br>
+
+		<div id="derivation" class="text en in2">
+		</div>
+
+		<table id="verb_table">
+		</table>
+	</div>
+</body>
+<script>
+	function hrefWrap(ref, text) {
+		return "<a class='textref' href='" + ref + "'>" + text + "</a>"
+	}
+
+	var WORD = decodeURI(window.location.pathname.replaceAll("/word/", ""))
+
+	var ROOT = WORD.substring(0, 3)
+
+	document.getElementById("word_title").innerHTML = WORD
+	document.title = "krn | " + WORD
+
+	var raw_data_req = new XMLHttpRequest();
+	raw_data_req.open("GET", "/rootdef/" + ROOT)
+	raw_data_req.send()
+	raw_data_req.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200){
+			var responseText = this.responseText
+			console.log(responseText)
+			var responseJSON = JSON.parse(responseText)
+			document.getElementById("definition").innerHTML += responseJSON.definition
+
+			document.getElementById("root").innerHTML += hrefWrap('/word/' + ROOT, ROOT)
+
+			//check for non-english words here
+			var arabic_urdu = /[\u0600-\u06FF]/
+			var hindi = /[\u0900-\u097F]/
+
+			var derivation = responseJSON.derivation
+			var derivation_text = ''
+
+			var words = derivation.split(" ")
+
+			for (var word of words){
+				if (arabic_urdu.test(word)){
+					derivation_text += "<span class='text ar'>" + word + "</span> "
+					continue
+				}
+				if (hindi.test(word)){
+					derivation_text += "<span class='text hn'>" + word + "</span> "
+					continue
+				}
+				derivation_text += word + " "
+			}
+
+			document.getElementById("derivation").innerHTML += derivation_text
+		}
+	}
+
+	function checkForVerbChart() {
+		if (document.getElementById("type").textContent.includes("infinitive")) {
+			var req = new XMLHttpRequest;
+			req.open("GET", "/verb_table/" + WORD)
+			req.send()
+			req.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("verb_table").innerHTML = this.responseText
+				}
+			}
+		}
+	}
+
+
+	var raw_data_req = new XMLHttpRequest();
+	raw_data_req.open("GET", "/desc/" + WORD)
+	raw_data_req.send()
+	raw_data_req.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200){
+			document.getElementById("type").innerHTML += this.responseText
+			checkForVerbChart()
+		}
+	}
+
+
+</script>
+</html>

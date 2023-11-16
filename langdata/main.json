@@ -1,0 +1,26 @@
+{
+	"gzs" : {
+		"rel" : "being",
+		"der" : "phonetically from English exist"
+	},
+	"klm" : {
+		"rel" : "talking, speaking",
+		"der" : "from Arabic كلم"
+	},
+	"khn" : {
+		"rel" : "eating",
+		"der" : "from Hindi खाना"
+	},
+	"krn" : {
+		"rel" : "doing",
+		"der" : "from Hindi करना"
+	},
+	"scn" : {
+		"rel" : "thinking",
+		"der" : "from Hindi सोचना"
+	},
+	"znd" : {
+		"rel" : "living",
+		"der" : "from Hindi ज़िन्दा, Farsi زنده"
+	}
+}
