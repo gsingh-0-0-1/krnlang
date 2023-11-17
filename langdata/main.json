@@ -15,6 +15,10 @@
 		"rel" : "doing",
 		"der" : "from Hindi करना"
 	},
+	"mlm" : {
+		"rel" : "knowing",
+		"der" : "from Hindi मालुम, through Arabic علم"
+	},
 	"prm" : {
 		"rel" : "loving",
 		"der" : "from Hindi प्रेम"
