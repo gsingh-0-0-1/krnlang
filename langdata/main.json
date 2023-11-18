@@ -1,7 +1,15 @@
 {
+	"cht" : {
+		"rel" : "wanting",
+		"der" : "from Hindustani चाहत"
+	},
 	"drm" : {
 		"rel" : "having",
 		"der" : "from Persian دارم"
+	},
+	"dnd" : {
+		"rel" : "searching",
+		"der" : "from Hindustani ढूंढ"
 	},
 	"gzs" : {
 		"rel" : "being",
@@ -13,26 +21,26 @@
 	},
 	"khn" : {
 		"rel" : "eating",
-		"der" : "from Hindi खाना"
+		"der" : "from Hindustani खाना"
 	},
 	"krn" : {
 		"rel" : "doing",
-		"der" : "from Hindi करना"
+		"der" : "from Hindustani करना"
 	},
 	"mlm" : {
 		"rel" : "knowing",
-		"der" : "from Hindi मालुम, through Arabic علم"
+		"der" : "from Hindustani मालुम, through Arabic علم"
 	},
 	"prm" : {
 		"rel" : "loving",
-		"der" : "from Hindi प्रेम"
+		"der" : "from Hindustani प्रेम"
 	},
 	"scn" : {
 		"rel" : "thinking",
-		"der" : "from Hindi सोचना"
+		"der" : "from Hindustani सोचना"
 	},
 	"znd" : {
 		"rel" : "living",
-		"der" : "from Hindi ज़िन्दा, Farsi زنده"
+		"der" : "from Hindustani ज़िन्दा, Farsi زنده"
 	}
 }

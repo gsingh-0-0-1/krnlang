@@ -164,6 +164,9 @@
 	raw_data_req.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200){
 			var responseText = this.responseText
+			if (responseText == 'null') {
+				window.location.assign('/404.html')
+			}
 			console.log(responseText)
 			var responseJSON = JSON.parse(responseText)
 			document.getElementById("definition").innerHTML += responseJSON.definition

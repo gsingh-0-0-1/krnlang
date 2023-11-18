@@ -5,11 +5,11 @@
 	},
 	"to" : {
 		"rel" : "you, second person singular pronoun",
-		"der" : "from Hindi/Punjabi/Persian/Spanish/... 'tu'/'to'"
+		"der" : "from Hindustani/Punjabi/Persian/Spanish/... 'tu'/'to'"
 	},
 	"wo" : {
 		"rel" : "he / she / it, third person singular pronoun",
-		"der" : "from Hindi 'vo'/'voh'/'vah'"
+		"der" : "from Hindustani 'vo'/'voh'/'vah'"
 	},
 	"ns" : {
 		"rel" : "us / we, first person plural pronoun",
@@ -23,12 +23,79 @@
 		"rel" : "they / them, third person plural pronoun",
 		"der" : "from Persian 'انها'"
 	},
+
+	"ne" : {
+		"rel" : "no",
+		"der" : "from Persian نه"
+	},
+
+	"b" : {
+		"rel" : "with",
+		"der" : "from Arabic بِ"
+	},
+	"ye" : {
+		"rel" : "of",
+		"der" : "from Persian ي"
+	},
+	"jo" : {
+		"rel" : "that, which (relative pronoun)",
+		"der" : "from Hindustani जो"
+	},
+	"li" : {
+		"rel" : "for, to",
+		"der" : "from Arabic لِ"
+	},
+
 	"yek" : {
 		"rel" : "one",
 		"der" : "from Persian يك"
 	},
+	"do" : {
+		"rel" : "two",
+		"der" : "from Hindustani दो, Spanish dos"
+	},
+	"tin" : {
+		"rel" : "three",
+		"der" : "from Hindustani तीन"
+	},
+	"car" : {
+		"rel" : "four",
+		"der" : "from Hindustani चार"
+	},
 	"panj" : {
 		"rel" : "five",
-		"der" : "from Hindi पाँच"
+		"der" : "from Hindustani पाँच"
+	},
+	"ce" : {
+		"rel" : "six",
+		"der" : "from Hindustani छे"
+	},
+	"sapt" : {
+		"rel" : "seven",
+		"der" : "from Latin septem"
+	},
+	"okt" : {
+		"rel" : "eight",
+		"der" : "from Latin octo"
+	},
+	"nav" : {
+		"rel" : "nine",
+		"der" : "from Hindustani नौ"
+	},
+	"ds" : {
+		"rel" : "ten",
+		"der" : "from Hindustani दस"
+	},
+	"sav" : {
+		"rel" : "hundred",
+		"der" : "from Hindustani सौ"
+	},
+	"hzr" : {
+		"rel" : "thousand",
+		"der" : "from Hindustani हज़ार, Persian هزار"
+	},
+	"mil" : {
+		"rel" : "million",
+		"der" : "from English million"
 	}
 }

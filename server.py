@@ -28,7 +28,7 @@ for hardset in HARDSET:
 	ENGLISH_TO_ROOT[HARDSET[hardset]['rel']] = hardset
 
 def generate_results(head):
-	yield head
+	# yield head
 	for child in head.children:
 		yield child
 		for grandchild in generate_results(child):
@@ -71,7 +71,7 @@ def wordpage(word):
 	rule_object = krn_parser.parse(word)
 
 	if not rule_object:
-		return render_template('no_such_word.html')
+		return render_template('404.html')
 	else:
 		return render_template('word.html')
 
@@ -83,7 +83,7 @@ def definition(root):
 	elif root in ROOT_DEFS:
 		item = ROOT_DEFS[root]
 	else:
-		return ''
+		return 'null'
 
 	return '{"definition" : "relating to %s", "derivation" : "%s"}' % (item['rel'], item['der'])
 
@@ -126,15 +126,17 @@ def query(query_item):
 	for rule_object, query_item in zip(rule_objects, query_items):
 		objects = [el for el in generate_results(rule_object)]
 
-		if not non_krn:
-			objects = objects[1:]
+		#if not non_krn:
+		#	objects = objects[1:]
 
 		for o in objects:
 			new_word = query_item + o.rule.replace(rule_object.rule, '')
 			rows.append(response_template % (new_word, o.name, ""))
 
-	print(rows)
-
 	return "\n".join(rows)
+
+@app.route('/<path:url>')
+def error(url):
+	return render_template('404.html')
 
 app.run(host = '0.0.0.0', port = 80, debug = True)
