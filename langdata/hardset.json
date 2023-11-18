@@ -1,0 +1,34 @@
+{
+	"na" : {
+		"rel" : "I / me, first person singular pronoun",
+		"der" : "from Arabic 'انا'"
+	},
+	"to" : {
+		"rel" : "you, second person singular pronoun",
+		"der" : "from Hindi/Punjabi/Persian/Spanish/... 'tu'/'to'"
+	},
+	"wo" : {
+		"rel" : "he / she / it, third person singular pronoun",
+		"der" : "from Hindi 'vo'/'voh'/'vah'"
+	},
+	"ns" : {
+		"rel" : "us / we, first person plural pronoun",
+		"der" : "from Spanish 'nosotros'"
+	},
+	"vs" : {
+		"rel" : "you (plural), second person plural pronoun",
+		"der" : "from Spanish 'vosotros'"
+	},
+	"nh" : {
+		"rel" : "they / them, third person plural pronoun",
+		"der" : "from Persian 'انها'"
+	},
+	"yek" : {
+		"rel" : "one",
+		"der" : "from Persian يك"
+	},
+	"panj" : {
+		"rel" : "five",
+		"der" : "from Hindi पाँच"
+	}
+}

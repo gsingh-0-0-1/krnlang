@@ -1,4 +1,8 @@
 {
+	"drm" : {
+		"rel" : "having",
+		"der" : "from Persian دارم"
+	},
 	"gzs" : {
 		"rel" : "being",
 		"der" : "phonetically from English exist"

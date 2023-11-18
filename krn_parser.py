@@ -2,14 +2,29 @@ import re
 import json
 
 # Let's define some basics
-PRONOUNS = [
-	'na', # 1st person sing., from Arabic 'ana'
-	'to', # 2nd person sing., from Hindi/Punjabi/Persian/Spanish/... 'tu'/'to'
-	'wo', # 3rd person sing., from Hindi 'vo'/'voh'/'vah'
-	'ns', # 1st person plur., from Spanish 'nosotros'
-	'vs', # 2nd person plur., from Spanish 'vosotros'
-	'nh'  # 3rd person plur., from Persian 'anha'
+
+CONSONANTS = [
+	'b',
+	'c',
+	'd',
+	'f',
+	'g',
+	'h',
+	'j',
+	'k',
+	'l',
+	'm',
+	'n',
+	'p',
+	'r',
+	's',
+	't',
+	'v',
+	'w',
+	'z'
 ]
+
+CONSONANTS_STR = "".join(CONSONANTS)
 
 PREPOSITIONS = [
 	'b', # with, from Arabic 'بِ'
@@ -25,6 +40,10 @@ MODALS = {
 
 f = open('langdata/verb_template.json')
 VERB_TEMPLATE = json.load(f)
+f.close()
+
+f = open('langdata/hardset.json')
+HARDSET = json.load(f)
 f.close()
 
 def verb_table(inf):
@@ -121,7 +140,7 @@ def create_rule(name, rule, parent = None):
 
 		RULES[level][name] = RULES[level - 1][parent] + rule
 
-HEAD = create_rule('root', '[a-z][a-z][a-z]')
+HEAD = create_rule('root', f'[{CONSONANTS_STR}][{CONSONANTS_STR}][{CONSONANTS_STR}]')
 
 for rt in ROOT_TYPES:
 	label_rt = ROOT_TYPES[rt][0]
@@ -140,7 +159,18 @@ for rt in ROOT_TYPES:
 
 			create_rule(label_st + " of " + label_rt, st, this_deriv_rule)
 
+
+
+def check_hardset_word(word):
+	if word in HARDSET:
+		return create_rule(HARDSET[word]['rel'], word)
+
 def check_match(word, rule):
+	
+	hardset = check_hardset_word(word)
+	if hardset:
+		return hardset
+
 	rule_regex = rule.rule
 	pattern = re.compile(rule_regex + "$")
 	match = bool(pattern.match(word))

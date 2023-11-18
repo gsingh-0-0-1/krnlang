@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
+
+	<link rel="stylesheet" href="/static/main.css">
+
+	<title>krn</title>
+
+	<style>
+		body{
+			background-color: #123;
+		}
+
+		.text{
+			color: white;
+		}
+
+		.gray{
+			color: #aaa;
+		}
+
+		.ar{
+			font-family: Noto Naskh Arabic;
+		}
+
+		.en{
+			font-family: Source Code Pro;
+		}
+
+		.bold {
+			text-decoration: underline;
+		}
+
+		.titletext{
+			font-size: 10vh;
+			color: white;
+			text-align: center;
+			font-family: Source Code Pro;
+		}
+
+		#cursor {
+			color: #88dd88;
+		}
+
+		.expos_div {
+			font-family: Source Code Pro;
+			background-color: #aaaadd;
+			position: relative;
+			width: 50%;
+			padding: 1vh 1vw;
+			transform: translate(-50%, 0%);
+			left: 50%;
+			margin-top: 5%;
+			font-size: 2.5vh;
+		}
+
+		.expos_div_title {
+			font-family: Source Code Pro;
+			font-size: 4vh;
+			text-align: center;
+		}
+
+		.krn_word {
+			color: #00f;
+		}
+
+	</style>
+
+</head>
+<body>
+	<br>
+	<div id="krn_title" class="titletext">
+		Phonolog<span id="title_autogen"></span><span id="cursor"></span>
+	</div>
+
+	<div id="intro" class="expos_div">
+		<div class="expos_div_title">
+			Consonants
+		</div>
+
+		<br><br>
+
+		The phonology of <span class="krn_word">krn</span> is similar to that of English, without much modification. There are some variations, however, and they are clarified below.
+
+		<br><br>
+
+		The consonants used by <span class="krn_word">krn</span> is as follows; each consonant is listed along with its IPA representation and a word example:
+
+		<br><br>
+
+		b, b, <span class="bold">b</span>old
+		<br>
+		c, tʃ, <span class="bold">ch</span>air
+		<br>
+		d, d, <span class="bold">d</span>ove
+		<br>
+		f, f, <span class="bold">f</span>irst
+		<br>
+		g, g, <span class="bold">g</span>old
+		<br>
+		h, h, <span class="bold">h</span>elp
+		<br>
+		j, dʒ, <span class="bold">j</span>eans
+		<br>
+		k, k / c<sup><a href="#footnote1">1</a></sup>, <span class="bold">c</span>old / <span class="bold">क</span>रना
+		<br>
+		l, l, <span class="bold">l</span>ight
+		<br>
+		m, m, <span class="bold">m</span>ost
+		<br>
+		n, n, <span class="bold">m</span>ost
+		<br>
+		p, p, <span class="bold">p</span>aint
+		<br>
+		r, ɾ, ca<span class="bold">r</span>o (Spanish) / th<span class="bold">r</span>ee
+		<br>
+		s, s, <span class="bold">s</span>and
+		<br>
+		t, t, <span class="bold">th</span>ink
+		<br>
+		v, v, <span class="bold">v</span>ine
+		<br>
+		w, w, <span class="bold">w</span>orld
+		<br>
+		z, z, <span class="bold">z</span>est
+
+
+
+		<br><br>
+
+		<span id="footnote1">
+			1: Here, both the English "k" and the Hindi "क" are acceptable. They differ slightly in that the English "k" is a palatal plosive, made by touching the tongue to the hard palate more towards the front of the mouth, whereas the Hindi "क" is made by touching the tongue to the hard palate further towards the back. <span class="krn_word">krn</span> does not differentiate between the two.
+		</span>
+
+		<br><br>
+
+	</div>
+
+	<div id="intro" class="expos_div">
+		<div class="expos_div_title">
+			Vowels
+		</div>
+
+		<br><br>
+
+		Every consonant, when not followed by a vowel, has an implied short vowel sound after it, similar to the sound made by English speakers when saying "uh" -- represented by a ə in the International Phonetic Alphabet. If a consonant is the last letter in a word, the short sound after it is optional.
+
+		<br><br>
+		Examples:
+		<br>
+		<span class="krn_word">krn</span> (kərənə or kərən)
+		<br>
+		<span class="krn_word">klm</span> (kələmə or kələm)
+
+		<br><br>
+
+		The long vowels are as follows:
+
+		<br><br>
+
+		a, ɒ, n<span class="bold">o</span>t
+		<br>
+		e, e, m<span class="bold">a</span>y
+		<br>
+		i, y, m<span class="bold">ea</span>n
+		<br>
+		o, o, m<span class="bold">o</span>st
+
+	</div>
+</body>
+<script src="/static/js/menubar.js"></script>
+<script>
+	var AUTOGENS = ['y', 'y', 'y', 'ee?', 'ie?']
+
+	function addToAutogen(c) {
+		title_autogen.textContent += c
+	}
+
+	function removeFromAutogen() {
+		title_autogen.textContent = title_autogen.textContent.slice(0, title_autogen.textContent.length - 1)
+	}
+
+	function autogen_for_title() {
+		title_autogen.textContent = ''
+		var choice = AUTOGENS[Math.round(Math.random() * AUTOGENS.length)]
+		var l = choice.length
+		var i = 1
+		for (var char of choice) {
+			(function (cc) {
+				setTimeout(function () {
+					addToAutogen(cc)
+				}, 400 * i)
+			})(char)
+			setTimeout(removeFromAutogen, 3000 + 200 * i)
+			i = i + 1
+		}
+	}
+
+	function blinkCursor() {
+		if (cursor.innerHTML == "_") {
+			cursor.innerHTML = '&nbsp;'
+		}
+		else {
+			cursor.innerHTML = '_'
+		}
+		setTimeout(blinkCursor, 700)
+	}
+
+	autogen_for_title()
+	setInterval(autogen_for_title, 10 * 1000)
+	blinkCursor();
+</script>
+</html>
