@@ -106,7 +106,6 @@ def query(query_item):
 		non_krn = False
 
 	if non_krn: # treat this as an english word
-		print(query_item, "is non krn")
 		if query_item in ENGLISH_TO_ROOT.keys():
 			rule_objects = [krn_parser.parse(ENGLISH_TO_ROOT[query_item])]
 			query_items = [ENGLISH_TO_ROOT[query_item]]
@@ -115,7 +114,6 @@ def query(query_item):
 			query_items = []
 			for engword in ENGLISH_TO_ROOT:
 				if query_item in engword:
-					print("\tfound", query_item, "in", engword)
 					rule_objects.append(krn_parser.parse(ENGLISH_TO_ROOT[engword]))
 					query_items.append(ENGLISH_TO_ROOT[engword])
 
