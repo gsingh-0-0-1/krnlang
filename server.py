@@ -114,6 +114,7 @@ def query(query_item):
 			query_items = []
 			for engword in ENGLISH_TO_ROOT:
 				if query_item in engword:
+					print(query_item, engword)
 					rule_objects.append(krn_parser.parse(ENGLISH_TO_ROOT[engword]))
 					query_items.append(ENGLISH_TO_ROOT[engword])
 
@@ -122,12 +123,16 @@ def query(query_item):
 
 	if not non_krn:
 		rows.append(response_template % (query_item, rule_objects[0].name, ""))
+	else:
+		if len(query_items) != 0:
+			rows.append(response_template % (query_items[0], rule_objects[0].name, ""))
 
 	for rule_object, query_item in zip(rule_objects, query_items):
 		objects = [el for el in generate_results(rule_object)]
 
 		#if not non_krn:
 		#	objects = objects[1:]
+
 
 		for o in objects:
 			new_word = query_item + o.rule.replace(rule_object.rule, '')
