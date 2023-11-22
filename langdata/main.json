@@ -1,15 +1,23 @@
 {
+	"brn" : {
+		"rel" : "improving",
+		"der" : "from Hindustani बढना / بڈھنا"
+	},
 	"cht" : {
-		"rel" : "wanting",
-		"der" : "from Hindustani चाहत"
+		"rel" : "wanting, desiring",
+		"der" : "from Hindustani चाहत / چاہت"
+	},
+	"dkn" : {
+		"rel" : "showing",
+		"der" : "from Hindustani दिखाना / دکھانا"
 	},
 	"drm" : {
-		"rel" : "having",
+		"rel" : "having, owning",
 		"der" : "from Persian دارم"
 	},
 	"dnd" : {
 		"rel" : "searching",
-		"der" : "from Hindustani ढूंढ"
+		"der" : "from Hindustani ढूँढ़ना / ڈھونڑھنا"
 	},
 	"gzs" : {
 		"rel" : "being",
@@ -19,25 +27,49 @@
 		"rel" : "talking, speaking",
 		"der" : "from Arabic كلم"
 	},
+	"kml" : {
+		"rel" : "ending, completing",
+		"der" : "from Arabic كمل"
+	},
 	"khn" : {
-		"rel" : "eating",
-		"der" : "from Hindustani खाना"
+		"rel" : "eating, devouring",
+		"der" : "from Hindustani खाना / کهانا"
 	},
 	"krn" : {
-		"rel" : "doing",
-		"der" : "from Hindustani करना"
+		"rel" : "doing, creating",
+		"der" : "from Hindustani करना / كرنا"
+	},
+	"ktb" : {
+		"rel" : "writing",
+		"der" : "from Arabic كتب"
 	},
 	"mlm" : {
-		"rel" : "knowing",
-		"der" : "from Hindustani मालुम, through Arabic علم"
+		"rel" : "knowing, comprehending",
+		"der" : "from Hindustani मालुम / معلوم, through Arabic علم"
+	},
+	"nzr" : {
+		"rel" : "seeing",
+		"der" : "from Hindustani नज़र / نظر, through Arabic نظر"
+	},
+	"phl" : {
+		"rel" : "preceding",
+		"der" : "from Hindustani पेहले / پہلے"
 	},
 	"prm" : {
 		"rel" : "loving",
 		"der" : "from Hindustani प्रेम"
 	},
 	"scn" : {
-		"rel" : "thinking",
+		"rel" : "thinking, pondering",
 		"der" : "from Hindustani सोचना"
+	},
+	"trr" : {
+		"rel" : "bringing",
+		"der" : "from Spanish traer"
+	},
+	"zkr" : {
+		"rel" : "remembering",
+		"der" : "from Arabic ذكر"
 	},
 	"znd" : {
 		"rel" : "living",

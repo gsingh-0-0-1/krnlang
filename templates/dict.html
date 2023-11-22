@@ -70,7 +70,7 @@
 		}
 
 		.root_desc_item {
-			padding: 3vh 1vw;
+			padding: 1.5vh 1vw;
 		}
 
 		#root {
@@ -102,17 +102,14 @@
 <body>
 
 	<div id="first_root" class="root_panel" style="display: none">
-		<span id="root" class="root_desc_item">
-			
-		</span>
+		<div id="root" class="root_desc_item">
+		</div>
 
+		<div id="definition" class="root_desc_item">
+		</div>
 
-		<span id="definition" class="root_desc_item">
-		</span>
-
-
-		<span id="derivation" class="root_desc_item">
-		</span>
+		<div id="derivation" class="root_desc_item">
+		</div>
 	</div>
 </body>
 <script src="/static/js/menubar.js"></script>
@@ -132,9 +129,9 @@
 			for (var root of Object.keys(root_json)) {
 				var panel = document.getElementById("first_root").cloneNode(true)
 				panel.style.display = "inline-block"
-				panel.getElementsByTagName('span')[0].innerHTML = hrefWrap('/word/' + root, root)
-				panel.getElementsByTagName('span')[1].innerHTML = root_json[root]['rel']
-				panel.getElementsByTagName('span')[2].innerHTML = root_json[root]['der']
+				panel.getElementsByTagName('div')[0].innerHTML = hrefWrap('/word/' + root, root)
+				panel.getElementsByTagName('div')[1].innerHTML = root_json[root]['rel']
+				panel.getElementsByTagName('div')[2].innerHTML = root_json[root]['der']
 				document.body.appendChild(panel)
 			}
 		}

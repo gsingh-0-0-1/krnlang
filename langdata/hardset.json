@@ -45,6 +45,27 @@
 		"rel" : "for, to",
 		"der" : "from Arabic لِ"
 	},
+	"ks" : {
+		"rel" : "any",
+		"der" : "from Hindustani किसी / کسی, Persian کسي"
+	},
+	"mn" : {
+		"rel" : "than, compared to, from",
+		"der" : "from Arabic مِن"
+	},
+
+	"kn" : {
+		"rel" : "past particle, compare to English 'was'",
+		"der" : "from Arabic كان"
+	},
+	"pa" : {
+		"rel" : "perfective particle, compare to English 'have' as in 'I have eaten'",
+		"der" : "from Hindustani करना / کرنا"
+	},
+	"kr" : {
+		"rel" : "continuous particle, compare to English '-ing'",
+		"der" : "from Hindustani करना / کرنا"
+	},
 
 	"yek" : {
 		"rel" : "one",

@@ -46,6 +46,10 @@ def search():
 def dict():
 	return render_template('dict.html')
 
+@app.route('/examples')
+def examples():
+	return render_template('examples.html')
+
 @app.route('/phonology')
 def phonology():
 	return render_template('phonology.html')
@@ -80,12 +84,12 @@ def definition(root):
 	# we treat hardsets like roots as well
 	if root in HARDSET:
 		item = HARDSET[root]
+		return '{"definition" : "relating to %s", "derivation" : "%s"}' % (item['rel'], item['der'])
 	elif root in ROOT_DEFS:
 		item = ROOT_DEFS[root]
+		return '{"definition" : "relating to (literal, expansive) %s", "derivation" : "%s"}' % (item['rel'], item['der'])
 	else:
 		return 'null'
-
-	return '{"definition" : "relating to %s", "derivation" : "%s"}' % (item['rel'], item['der'])
 
 @app.route('/desc/<path:word>')
 def desc(word):
@@ -94,6 +98,7 @@ def desc(word):
 
 @app.route('/query/<path:query_item>')
 def query(query_item):
+	print("QUERY <%s>" % query_item)
 	rule_objects = [krn_parser.parse(query_item)]
 	query_items = [query_item]
 
@@ -105,27 +110,30 @@ def query(query_item):
 	if rule_objects[0] and query_item[:3] not in ROOT_DEFS:
 		non_krn = False
 
-	if non_krn: # treat this as an english word
-		if query_item in ENGLISH_TO_ROOT.keys():
-			rule_objects = [krn_parser.parse(ENGLISH_TO_ROOT[query_item])]
-			query_items = [ENGLISH_TO_ROOT[query_item]]
-		else:
-			rule_objects = []
-			query_items = []
-			for engword in ENGLISH_TO_ROOT:
-				if query_item in engword:
-					print(query_item, engword)
-					rule_objects.append(krn_parser.parse(ENGLISH_TO_ROOT[engword]))
-					query_items.append(ENGLISH_TO_ROOT[engword])
+	if non_krn:
+		rule_objects = []
+		query_items = []
+
+	#if non_krn: # treat this as an english word
+	if query_item in ENGLISH_TO_ROOT.keys():
+		rule_objects.append(krn_parser.parse(ENGLISH_TO_ROOT[query_item]))
+		query_items.append(ENGLISH_TO_ROOT[query_item])
+	else:
+		for engword in ENGLISH_TO_ROOT:
+			if query_item in engword:
+				print(query_item, engword)
+				rule_objects.append(krn_parser.parse(ENGLISH_TO_ROOT[engword]))
+				query_items.append(ENGLISH_TO_ROOT[engword])
 
 	response_template = '{"word" : "%s", "type" : "%s", "definition" : "%s"}'
 	rows = []
 
-	if not non_krn:
-		rows.append(response_template % (query_item, rule_objects[0].name, ""))
-	else:
-		if len(query_items) != 0:
-			rows.append(response_template % (query_items[0], rule_objects[0].name, ""))
+	#if not non_krn:
+	#	rows.append(response_template % (query_item, rule_objects[0].name, ""))
+	#else:
+	#	pass
+		#if len(query_items) != 0:
+		#	rows.append(response_template % (query_items[0], rule_objects[0].name, ""))
 
 	for rule_object, query_item in zip(rule_objects, query_items):
 		objects = [el for el in generate_results(rule_object)]
@@ -133,6 +141,8 @@ def query(query_item):
 		#if not non_krn:
 		#	objects = objects[1:]
 
+		#if len(objects) == 0:
+		rows.append(response_template % (query_item, rule_object.name, ""))
 
 		for o in objects:
 			new_word = query_item + o.rule.replace(rule_object.rule, '')
