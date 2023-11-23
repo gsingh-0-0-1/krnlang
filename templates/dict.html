@@ -69,20 +69,28 @@
 			padding: 3vh 1vw;
 		}
 
-		.root_desc_item {
+		.root_item {
 			padding: 1.5vh 1vw;
 		}
 
-		#root {
+		.root {
 			color: #2df;
 		}
 
-		#definition {
+		.root_def {
 			color: #f82;
 		}
 
-		#derivation {
+		.root_der {
 			color: #ddd;
+		}
+
+		.root_number {
+			position: absolute;
+			right: 3%;
+			top: 3%;
+			font-size: 3vh;
+			font-family: Source Code Pro, Courier;
 		}
 
 		table { border-collapse: collapse; }
@@ -102,13 +110,16 @@
 <body>
 
 	<div id="first_root" class="root_panel" style="display: none">
-		<div id="root" class="root_desc_item">
+		<div class="root_item root">
 		</div>
 
-		<div id="definition" class="root_desc_item">
+		<div class="root_item root_def">
 		</div>
 
-		<div id="derivation" class="root_desc_item">
+		<div class="root_item root_der">
+		</div>
+
+		<div class="root_item root_number">
 		</div>
 	</div>
 </body>
@@ -126,13 +137,16 @@
 	raw_data_req.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200){
 			var root_json = JSON.parse(this.responseText)
+			var i = 1;
 			for (var root of Object.keys(root_json)) {
 				var panel = document.getElementById("first_root").cloneNode(true)
 				panel.style.display = "inline-block"
 				panel.getElementsByTagName('div')[0].innerHTML = hrefWrap('/word/' + root, root)
 				panel.getElementsByTagName('div')[1].innerHTML = root_json[root]['rel']
 				panel.getElementsByTagName('div')[2].innerHTML = root_json[root]['der']
+				panel.getElementsByTagName('div')[3].innerHTML = i
 				document.body.appendChild(panel)
+				i = i + 1
 			}
 		}
 	}

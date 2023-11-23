@@ -20,6 +20,14 @@ f = open('langdata/hardset.json')
 HARDSET = json.load(f)
 f.close()
 
+# combine the two
+ALL = {}
+for key in ROOT_DEFS:
+	ALL[key] = ROOT_DEFS[key]
+for key in HARDSET:
+	ALL[key] = HARDSET[key]
+
+
 # get the english definitions
 ENGLISH_TO_ROOT = {}
 for root in ROOT_DEFS:
@@ -68,7 +76,7 @@ def verb_table(inf):
 
 @app.route('/allroots')
 def allroots():
-	return json.dumps(ROOT_DEFS)
+	return json.dumps(ALL, sort_keys = True)
 
 @app.route('/word/<path:word>')
 def wordpage(word):
@@ -84,7 +92,7 @@ def definition(root):
 	# we treat hardsets like roots as well
 	if root in HARDSET:
 		item = HARDSET[root]
-		return '{"definition" : "relating to %s", "derivation" : "%s"}' % (item['rel'], item['der'])
+		return '{"definition" : "%s", "derivation" : "%s"}' % (item['rel'], item['der'])
 	elif root in ROOT_DEFS:
 		item = ROOT_DEFS[root]
 		return '{"definition" : "relating to (literal, expansive) %s", "derivation" : "%s"}' % (item['rel'], item['der'])
@@ -98,7 +106,7 @@ def desc(word):
 
 @app.route('/query/<path:query_item>')
 def query(query_item):
-	print("QUERY <%s>" % query_item)
+	# print("QUERY <%s>" % query_item)
 	rule_objects = [krn_parser.parse(query_item)]
 	query_items = [query_item]
 
@@ -121,7 +129,7 @@ def query(query_item):
 	else:
 		for engword in ENGLISH_TO_ROOT:
 			if query_item in engword:
-				print(query_item, engword)
+				# print(query_item, engword)
 				rule_objects.append(krn_parser.parse(ENGLISH_TO_ROOT[engword]))
 				query_items.append(ENGLISH_TO_ROOT[engword])
 

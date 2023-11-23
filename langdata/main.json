@@ -23,6 +23,10 @@
 		"rel" : "being",
 		"der" : "phonetically from English exist"
 	},
+	"jlm" : {
+		"rel" : "sending",
+		"der" : "from Turkish yollamak"
+	},
 	"klm" : {
 		"rel" : "talking, speaking",
 		"der" : "from Arabic كلم"
@@ -58,6 +62,10 @@
 	"prm" : {
 		"rel" : "loving",
 		"der" : "from Hindustani प्रेम"
+	},
+	"prn" : {
+		"rel" : "reading",
+		"der" : "from Hindustani पढ़ना"
 	},
 	"scn" : {
 		"rel" : "thinking, pondering",
