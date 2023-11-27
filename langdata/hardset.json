@@ -66,6 +66,10 @@
 		"rel" : "continuous particle, compare to English '-ing'",
 		"der" : "from Hindustani करना / کرنا"
 	},
+	"fr" : {
+		"rel" : "future particle, compare to English 'will'",
+		"der" : ""
+	},
 
 	"yek" : {
 		"rel" : "one",

@@ -61,15 +61,19 @@
 	},
 	"prm" : {
 		"rel" : "loving",
-		"der" : "from Hindustani प्रेम"
+		"der" : "from Hindustani प्रेम / پریم"
 	},
 	"prn" : {
 		"rel" : "reading",
-		"der" : "from Hindustani पढ़ना"
+		"der" : "from Hindustani पढ़ना / پڈھنا"
+	},
+	"rht" : {
+		"rel" : "resting",
+		"der" : "from Hindustani राहत / راہت"
 	},
 	"scn" : {
 		"rel" : "thinking, pondering",
-		"der" : "from Hindustani सोचना"
+		"der" : "from Hindustani सोचना / سوچنا"
 	},
 	"trr" : {
 		"rel" : "bringing",
@@ -81,6 +85,6 @@
 	},
 	"znd" : {
 		"rel" : "living",
-		"der" : "from Hindustani ज़िन्दा, Farsi زنده"
+		"der" : "from Hindustani ज़िन्दा / زندگی, Farsi زنده"
 	}
 }
