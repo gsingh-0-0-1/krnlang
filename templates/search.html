@@ -143,5 +143,12 @@
 		clearTimeout(SUBMIT_TIMEOUT);
 		SUBMIT_TIMEOUT = setTimeout(submitQuery, 400)
 	}
+
+	var params = new URLSearchParams(window.location.search);
+
+	if (params.get('query') != null && params.get('query') != undefined) {
+		document.getElementById("searchbar").value = params.get("query")
+		submitQuery();
+	}
 </script>
 </html>
