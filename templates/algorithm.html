@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
+
+	<link rel="stylesheet" href="/static/main.css">
+
+	<title>krn | Algorithm</title>
+
+	<style>
+		body{
+			background-color: #123;
+		}
+
+		.text{
+			color: white;
+		}
+
+		.gray{
+			color: #aaa;
+		}
+
+		.ar{
+			font-family: Noto Naskh Arabic;
+		}
+
+		.en{
+			font-family: Source Code Pro;
+		}
+
+		.titletext{
+			font-size: 10vh;
+			color: white;
+			text-align: center;
+			font-family: Source Code Pro;
+		}
+
+		#cursor {
+			color: #88dd88;
+		}
+
+		.expos_div {
+			font-family: Source Code Pro;
+			background-color: #aaaadd;
+			position: relative;
+			width: 50%;
+			padding: 1vh 1vw;
+			transform: translate(-50%, 0%);
+			left: 50%;
+			margin-top: 5%;
+			font-size: 2.5vh;
+		}
+
+		.expos_div_title {
+			font-family: Source Code Pro;
+			font-size: 4vh;
+			text-align: center;
+		}
+
+		.krn_word {
+			color: #00f;
+		}
+
+		.krn_word_link {
+			display: inline-block;
+			color: #00f;
+			position: relative;
+			padding: 1% 1%;
+			background-color: #88f;
+		}
+
+		.krn_word_link_blank {
+			display: inline-block;
+			color: #00f;
+			position: relative;
+			padding: 1% 1%;
+			background-color: #aad;
+		}
+
+		#tree {
+			text-align: center;
+		}
+
+	</style>
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4CT4NRB7MZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4CT4NRB7MZ');
+</script>
+
+<body>
+	<br>
+	<div id="krn_title" class="titletext">
+		krn<span id="title_autogen"></span><span id="cursor"></span>
+	</div>
+
+	<div id="algorithm" class="expos_div">
+		<div class="expos_div_title">
+			Algorithm
+		</div>
+
+		<br><br>
+
+		The driving idea behind the algorithm that generates this vocabulary is the one of <a href="https://en.wikipedia.org/wiki/Context-free_grammar">Context-Free Grammar</a>. The majority of how this algorithm and the idea behind this language occurred to me during a lecture of my Computer Architecture class where we were being introduced to the basics of compilers. The general idea for a compiler for a programming language is that you have a tree-like structure which you can traverse bottom-to-top, in order to validate whether or not the syntax is correct and to generate more low-level code that can be interpreted by a computer (eg. C to Assembly).
+
+		<br><br>
+
+		But, if we traverse the tree top-down, we can do the inverse of validation -- generation. That's the guiding methodology behind the construction of vocabulary in <span class="krn_word">krn</span>. The algorithm starts with the pre-defined three-letter root words in the <a href="/dictionary">Dictionary</a>, and traverses a tree downwards to create all the possible words that root can produce.
+
+		<br><br>
+
+	</div>
+
+
+	<div id="tree" class="expos_div">
+
+		<div class="expos_div_title">
+			Tree
+		</div>
+
+		<br><br>
+
+		Below is a tree that describes some of the basic word construction. Given the large number of possibilities from each root word, the tree shows select examples of the literal root tree and not the expansive.
+
+		<br><br>
+
+		<div class="krn_word_link" id="example_root">
+			Root
+			<br>
+			<a href='/word/klm'>klm</a>
+		</div>
+
+		<br><br><br>
+
+		<div class="krn_word_link" id="example_root">
+			Literal
+			<a href='/word/klma'>klma</a>
+		</div>
+
+		<br><br><br>
+
+		<div class="krn_word_link" id="example_root">
+			Verb
+			<br>
+			<a href='/word/klmav'>klmav</a>
+		</div>
+		&nbsp;&nbsp;
+		<div class="krn_word_link" id="example_root">
+			Modifier
+			<br>
+			<a href='/word/klmam'>klmam</a>
+		</div>
+		&nbsp;&nbsp;
+		<div class="krn_word_link" id="example_root">
+			Noun
+			<br>
+			<a href='/word/klmac'>klmac</a>
+		</div>
+
+		<br><br><br>
+
+		<div class="krn_word_link_blank" id="example_root">
+			&nbsp;&nbsp;
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+		&nbsp;&nbsp;
+		<div class="krn_word_link" id="example_root">
+			Pass.
+			<br>
+			<a href='/word/klmamp'>klmamp</a>
+		</div>
+		&nbsp;&nbsp;
+		<div class="krn_word_link" id="example_root">
+			Act.
+			<br>
+			<a href='/word/klmamk'>klmamk</a>
+		</div>
+		&nbsp;&nbsp;
+		<div class="krn_word_link" id="example_root">
+			Agent.
+			<br>
+			<a href='/word/klmac'>klmacg</a>
+		</div>
+		&nbsp;&nbsp;
+		<div class="krn_word_link" id="example_root">
+			Loc.
+			<br>
+			<a href='/word/klmac'>klmacl</a>
+		</div>
+
+		<br><br>
+	</div>
+</body>
+<script src="/static/js/menubar.js"></script>
+<script>
+	/*
+	var AUTOGENS = ['a', 'ac', 'acg', 'ack', 'e', 'emp', 'ecg', 'eck', 'amp', 'emk']
+
+	function addToAutogen(c) {
+		title_autogen.textContent += c
+	}
+
+	function removeFromAutogen() {
+		title_autogen.textContent = title_autogen.textContent.slice(0, title_autogen.textContent.length - 1)
+	}
+
+	function autogen_for_title() {
+		title_autogen.textContent = ''
+		var choice = AUTOGENS[Math.round(Math.random() * AUTOGENS.length)]
+		var l = choice.length
+		var i = 1
+		for (var char of choice) {
+			(function (cc) {
+				setTimeout(function () {
+					addToAutogen(cc)
+				}, 400 * i)
+			})(char)
+			setTimeout(removeFromAutogen, 3000 + 200 * i)
+			i = i + 1
+		}
+	}
+	*/
+
+	function blinkCursor() {
+		if (cursor.innerHTML == "_") {
+			cursor.innerHTML = '&nbsp;'
+		}
+		else {
+			cursor.innerHTML = '_'
+		}
+		setTimeout(blinkCursor, 700)
+	}
+
+	function fillTree() {
+
+	}
+
+	// autogen_for_title()
+	// setInterval(autogen_for_title, 10 * 1000)
+	blinkCursor();
+</script>
+</html>

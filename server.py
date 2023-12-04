@@ -66,6 +66,10 @@ def phonology():
 def grammar():
 	return render_template('grammar.html')
 
+@app.route('/algorithm')
+def algorithm():
+	return render_template('algorithm.html')
+
 @app.route('/pronouns')
 def pronouns():
 	return ",".join(krn_parser.PRONOUNS)
