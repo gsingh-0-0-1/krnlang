@@ -67,6 +67,10 @@
 		"rel" : "reading",
 		"der" : "from Hindustani पढ़ना / پڈھنا"
 	},
+	"ptr" : {
+		"rel" : "being able",
+		"der" : "from C++ pointer"
+	},
 	"rht" : {
 		"rel" : "resting",
 		"der" : "from Hindustani राहत / راہت"
